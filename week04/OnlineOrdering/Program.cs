@@ -18,11 +18,13 @@ class Program
         order2.AddProduct(new Product("Banana", "002", 1, 5));
         // Calling some method for the Order number 1
         Console.WriteLine($"The toatl cost is: {order1.CalculateTotalCost()}");
+        Console.WriteLine($"The list of the products is: \n{order1.GetProducts()}");
         Console.WriteLine($"The packing label is: {order1.GetPackingLabel()}");
         Console.WriteLine($"The shipping label is: {order1.GetShippingLabel()}");
         Console.WriteLine();
         // Calling some method for the Order number 2
         Console.WriteLine($"The toatl cost is: {order2.CalculateTotalCost()}");
+        Console.WriteLine($"The list of the products is: \n{order2.GetProducts()}");
         Console.WriteLine($"The packing label is: {order2.GetPackingLabel()}");
         Console.WriteLine($"The shipping label is: {order2.GetShippingLabel()}");
 

@@ -1,3 +1,5 @@
+using System.Drawing;
+
 public class Order
 {
     private List<Product> _products;
@@ -35,6 +37,16 @@ public class Order
     public string GetShippingLabel()
     {
         return _customer.GetAddress();
+    }
+
+    public string GetProducts()
+    {
+        string result = "";
+        foreach (Product product in _products)
+        {
+            result += $"{product.GetProductName()} ";
+        }
+        return result;
     }
 
     public void AddProduct(Product product)
