@@ -22,7 +22,8 @@ class Program
             Console.Clear();
             Console.WriteLine(scriptures[randomScripture].GetReference().GetDisplayText() + " " + scriptures[randomScripture].GetDisplayText());
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-            string check = Console.ReadLine(); if (string.IsNullOrEmpty(check))
+            string check = Console.ReadLine();
+            if (string.IsNullOrEmpty(check))
             {
                 int randomNumber = random.Next(1, 4);
                 scriptures[randomScripture].HideRandomWords(randomNumber);
