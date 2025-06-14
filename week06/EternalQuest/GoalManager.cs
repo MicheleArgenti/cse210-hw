@@ -91,7 +91,7 @@ public class GoalManager
         if (_goals[completeGoal] is ChecklistGoal checklistGoal && _goals[completeGoal].IsComplete())
         {
             _score += checklistGoal.GetBonus();
-            Console.WriteLine($"Congratulation! You have earned {checklistGoal.GetBonus() + _goals[completeGoal].GetPoints()}");
+            Console.WriteLine($"Congratulation! You have earned {checklistGoal.GetBonus() + int.Parse(_goals[completeGoal].GetPoints())}");
         }
         else
         {
