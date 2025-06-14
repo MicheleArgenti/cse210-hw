@@ -5,7 +5,6 @@ public class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-        Console.WriteLine($"Congratulation! You have earned {_point}");
     }
     public override bool IsComplete()
     {

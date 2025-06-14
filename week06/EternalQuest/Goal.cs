@@ -1,5 +1,6 @@
 public abstract class Goal
 {
+
     protected string _shortName;
     protected string _description;
     protected string _point;

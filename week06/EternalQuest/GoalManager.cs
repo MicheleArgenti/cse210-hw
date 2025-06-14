@@ -2,6 +2,7 @@ public class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
+    private int _level;
 
     public GoalManager()
     {
@@ -18,7 +19,7 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        Console.WriteLine($"You have {_score} points.\n");
+        Console.WriteLine($"You have {_score} points.\nYou are currently level {_level}");
     }
 
     public void ListGoalNames()
@@ -90,7 +91,13 @@ public class GoalManager
         if (_goals[completeGoal] is ChecklistGoal checklistGoal && _goals[completeGoal].IsComplete())
         {
             _score += checklistGoal.GetBonus();
+            Console.WriteLine($"Congratulation! You have earned {checklistGoal.GetBonus() + _goals[completeGoal].GetPoints()}");
         }
+        else
+        {
+            Console.WriteLine($"Congratulation! You have earned {_goals[completeGoal].GetPoints()}");
+        }
+        GetLevel();
     }
 
     public void SaveGoals()
@@ -142,8 +149,8 @@ public class GoalManager
                     Console.WriteLine("Error. Exiting.");
                     break;
             }
-
         }
+        GetLevel();
     }
 
     public void ListGoals()
@@ -152,6 +159,11 @@ public class GoalManager
         {
             Console.WriteLine(goal.GetDetailString());
         }
+    }
+
+    public void GetLevel()
+    {
+        _level = _score / 100;
     }
 
 }

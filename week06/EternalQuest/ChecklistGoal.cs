@@ -18,14 +18,6 @@ public class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
-        if (IsComplete())
-        {
-            Console.WriteLine($"Congratulation! You have earned {_point + _bonus}");
-        }
-        else
-        {
-            Console.WriteLine($"Congratulation! You have earned {_point}");
-        }
         _amountCompleted += 1;
     }
 
