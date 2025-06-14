@@ -2,11 +2,15 @@ public class SimpleGoal : Goal
 {
     private bool _isComplete;
 
-    public SimpleGoal(string shortName, string description, string point) : base(shortName, description, point) { }
+    public SimpleGoal(string shortName, string description, string point) : base(shortName, description, point)
+    {
+        _isComplete = false;
+    }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        _isComplete = true;
+        Console.WriteLine($"Congratulation! You have earned {_point}");
     }
 
     public override bool IsComplete()
@@ -15,12 +19,15 @@ public class SimpleGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        return $"SimpleGoal;{_shortName};{_description};{_point};{_isComplete}";
     }
 
     public override string GetDetailString()
     {
-        throw new NotImplementedException();
+        if (_isComplete)
+            return $"[X] {_shortName} ({_description})";
+        else
+            return $"[ ] {_shortName} ({_description})";
     }
 
 }

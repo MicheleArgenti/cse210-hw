@@ -8,24 +8,46 @@ public class ChecklistGoal : Goal
     {
         _target = target;
         _bonus = bonus;
-    }
-    public override string GetDetailString()
-    {
-        throw new NotImplementedException();
+        _amountCompleted = 0;
     }
 
-    public override string GetStringRepresentation()
+    public int GetBonus()
     {
-        throw new NotImplementedException();
-    }
-
-    public override bool IsComplete()
-    {
-        throw new NotImplementedException();
+        return _bonus;
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        if (IsComplete())
+        {
+            Console.WriteLine($"Congratulation! You have earned {_point + _bonus}");
+        }
+        else
+        {
+            Console.WriteLine($"Congratulation! You have earned {_point}");
+        }
+        _amountCompleted += 1;
     }
+
+    public override bool IsComplete()
+    {
+        if (_amountCompleted == _target)
+            return true;
+        else
+            return false;
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return $"ChecklistGoal;{_shortName};{_description};{_point};{_bonus};{_target};{_amountCompleted}";
+    }
+
+    public override string GetDetailString()
+    {
+        if (_amountCompleted == _target)
+            return $"[X] {_shortName} ({_description}) -- Currently completed {_amountCompleted}/{_target}";
+        else
+            return $"[ ] {_shortName} ({_description}) -- Currently completed {_amountCompleted}/{_target}";
+    }
+
 }
