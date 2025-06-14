@@ -2,6 +2,10 @@ using System;
 
 class Program
 {
+    /* 
+      To show creativity I added the user's level by dividing the total score by 100.
+      You can find the method GetLevel() in the GoalManager class.
+    */
     static void Main(string[] args)
     {
         GoalManager goalManager = new GoalManager();
